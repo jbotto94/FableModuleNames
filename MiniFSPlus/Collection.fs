@@ -10,32 +10,7 @@ open FSharpPlus
 open FSharpPlus.Internals
 
 
-type OfSeq =
-    inherit Default1
-    static member inline Invoke (value: seq<'t>) = 
-        let inline call_2 (a: ^a, b: ^b, s) = ((^a or ^b) : (static member OfSeq : _*_*_ -> _) s, b, a)
-        let inline call (a: 'a, s) = call_2 (a, Unchecked.defaultof<'r>, s) : 'r
-        call (Unchecked.defaultof<OfSeq>, value)
-
-
-type TestType =
-    static member TestType (x: list<'a>) = x
-    static member TestType (x: 'a []) = x
-
-
-type TestType1 =
-    static member inline TestType1 (x: list<'a>) = x
-    static member inline TestType1 (x: 'a []) = x
-
-
-type TestType2 =
-    static member inline TestType2 (x: list<'a>) = x
-    static member TestType2 (x: 'a []) = x
-
-
-
 type Distinct1 =
-//    static member        Distinct1 (x: list<'a>, [<Optional>]_impl: Distinct1) = List.distinct x
     static member inline Distinct1 (x: ^``Collection<'T>``  , [<Optional>]_impl: Default1) = (^``Collection<'T>`` : (static member Distinct1 : _->_) x) : '``Collection<'T>``
     static member inline Distinct1 (_: ^t when ^t : null and ^t : struct, _mthd: Default1) = id //must
 
