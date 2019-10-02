@@ -21,7 +21,7 @@ type Distinct =
 
     static member        Distinct (x: list<'a>, [<Optional>]_impl: Distinct) = List.distinct x
     static member        Distinct (x: 'a []   , [<Optional>]_impl: Distinct) = Array.distinct x
-    static member inline Distinct (x: '``Collection<'T>``  , [<Optional>]_impl: Default2) = x |> ToSeq.Invoke |> Seq.distinct |> OfSeq.Invoke         : '``Collection<'T>``
+    //static member inline Distinct (x: '``Collection<'T>``  , [<Optional>]_impl: Default2) = x |> ToSeq.Invoke |> Seq.distinct |> OfSeq.Invoke         : '``Collection<'T>``
     static member inline Distinct (x: ^``Collection<'T>``  , [<Optional>]_impl: Default1) = (^``Collection<'T>`` : (static member Distinct : _->_) x) : '``Collection<'T>``
     static member inline Distinct (_: ^t when ^t : null and ^t : struct, _mthd: Default1) = id
 
@@ -31,7 +31,7 @@ type Rev =
 
     static member        Rev (x: list<'a>   , [<Optional>]_impl: Rev  ) = List.rev x
     static member        Rev (x: 'a []      , [<Optional>]_impl: Rev  ) = Array.rev x
-    static member inline Rev (x: '``Collection<'T>``, [<Optional>]_impl: Default2) = x |> ToSeq.Invoke |> Seq.rev |> OfSeq.Invoke         : '``Collection<'T>``
+    //static member inline Rev (x: '``Collection<'T>``, [<Optional>]_impl: Default2) = x |> ToSeq.Invoke |> Seq.rev |> OfSeq.Invoke         : '``Collection<'T>``
     static member inline Rev (x: ^``Collection<'T>``, [<Optional>]_impl: Default1) = (^``Collection<'T>`` : (static member Rev : _->_) x) : '``Collection<'T>``
     static member inline Rev (_: ^t when ^t: null and ^t: struct, _mthd: Default1) = id
 
@@ -40,7 +40,7 @@ type Sort =
 
     static member        Sort (x: list<'a>, [<Optional>]_impl: Sort) = List.sort x
     static member        Sort (x: 'a []   , [<Optional>]_impl: Sort) = Array.sort x
-    static member inline Sort (x: '``Collection<'T>``, [<Optional>]_impl: Default2) = x |> ToSeq.Invoke |> Seq.sort |> OfSeq.Invoke         : '``Collection<'T>``
+    //static member inline Sort (x: '``Collection<'T>``, [<Optional>]_impl: Default2) = x |> ToSeq.Invoke |> Seq.sort |> OfSeq.Invoke         : '``Collection<'T>``
     static member inline Sort (x: ^``Collection<'T>``, [<Optional>]_impl: Default1) = (^``Collection<'T>`` : (static member Sort : _->_) x) : '``Collection<'T>``
     static member inline Sort (_: ^t when ^t: null and ^t: struct, _mthd: Default1) = id
 
